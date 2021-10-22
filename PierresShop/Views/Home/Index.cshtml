@@ -1,0 +1,37 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierresShop.Models
+
+<h1>Welcome to Pierre's Sweet and Savory Treats!</h1>
+
+<h3>We serve the following finest treats</h3>
+@if(@ViewBag.Treats.Count == 0)
+{
+  <p>Sorry, there are no treats at this time.</p>
+}
+else
+{
+  <ul>
+    @foreach(Treat treat in @ViewBag.Treats)
+    {
+      <li>@Html.ActionLink($"{treat.Name}", "Details", "Treats", new {id = treat.TreatId})</li>
+    }
+  </ul>
+}
+
+<h3>We serve the following flavors</h3>
+@if(@ViewBag.Flavors.Count == 0)
+{
+  <p>Sorry, there are no flavors at this time.</p>
+}
+else
+{
+  <ul>
+    @foreach(Flavor flavor in @ViewBag.Flavors)
+    {
+      <li>@Html.ActionLink($"{flavor.Name}", "Details", "Flavors", new {id = flavor.FlavorId})</li>
+    }
+  </ul>
+}

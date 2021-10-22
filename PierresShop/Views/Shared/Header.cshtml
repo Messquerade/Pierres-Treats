@@ -1,0 +1,20 @@
+@using System.Security.Claims
+
+<div id="Header">
+  <h3>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "HeaderText" })</h3>
+  <h3>@Html.ActionLink("Recipes", "Index", "Recipes", null, new { @class = "HeaderText" })</h3>
+  <h3>@Html.ActionLink("Tags", "Index", "Tags", null, new { @class = "HeaderText" })</h3>
+
+  @if(User.Identity.IsAuthenticated)
+  {
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+      <input type="submit" class="btn btn-light ButtonText" value="Log Out" />
+    }
+  }
+  else
+  {
+    <p class="btn btn-light">@Html.ActionLink("Register", "Register", "Account")</p>
+    <p class="btn btn-light">@Html.ActionLink("Log in", "Login", "Account")</p>
+  }
+</div>
