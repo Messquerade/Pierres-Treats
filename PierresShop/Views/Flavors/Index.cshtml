@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierresShop.Models
+
+<h2>Flavors</h2>
+
+<h3>Pierre's Shop currently offers the following flavors:</h3>
+@if(Model.Count == 0)
+{
+  <p>Sorry, we have no current flavors.</p>
+}
+
+@foreach(Flavor flavor in Model)
+{
+  <p>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId })</p>
+}
+
+<p>@Html.ActionLink("Add a New Flavor", "Create")</p>

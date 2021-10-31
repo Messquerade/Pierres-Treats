@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierresShop.Models
+
+<h2>Treats</h2>
+
+<h3>Pierre's Shop currently offers the following treats:</h3>
+@if(Model.Count == 0)
+{
+  <p>Sorry, we have no current treats.</p>
+}
+
+@foreach(Treat treat in Model)
+{
+  <p>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId })</p>
+}
+
+<p>@Html.ActionLink("Add a New Treat", "Create")</p>
