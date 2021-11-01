@@ -4,7 +4,7 @@
 
 @model PierresShop.Models.Flavor
 
-<h2>Model.Name</h2>
+<h2>@Model.Name</h2>
 
 @if(@Model.JoinEntities.Count == 0)
 {
@@ -23,7 +23,7 @@ else
     }
   }
 }
-
+<hr>
 <h4>@Html.ActionLink("Edit this Flavor", "Edit", new { id = Model.FlavorId })</h4>
 <h4>@Html.ActionLink("Delete this Flavor", "Delete", new { id = Model.FlavorId})</h4>
 <h4>@Html.ActionLink("Add Treats to Flavor", "AddTreat", new {id = Model.FlavorId})</h4>

@@ -20,7 +20,7 @@ Pierre's shop of delicious treats of many flavors!
 
 ## Description
 
-This web application allows any user to view treats and flavors currently available at Pierre's Sweet and Savory Treats. Only users who have registered and are logged in can create, edit, and delete treats or flavors.
+This web application allows any user to view treats and flavors currently available at Pierre's Sweet and Savory Treats. Only users who have registered and are logged in can create, edit, and delete treats or flavors. Only users who have registered and are logged in can add or delete a treat from a flavor or a flavor from a treat.
 
 ### Technology Requirements
 
@@ -58,7 +58,8 @@ This web application allows any user to view treats and flavors currently availa
 
 ## Known Bugs
 
-* _NA_
+* _As an logged out user, the delete button under a treat on a flavor's details page leads to the "hello world" back up view instead of redirecting back to the same details page_
+* _You can only add one flavor or treat to another flavor or treat at a time_
 
 ## License
 

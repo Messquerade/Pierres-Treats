@@ -5,17 +5,15 @@
 @using PierresShop.Models
 @model PierresShop.Models.Flavor
 
-<h2>Add Treats to @Model.Name</h2>
+<h2>Add a Treat to @Model.Name</h2>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.FlavorId)
-  @Html.Label("Check all Treats you would like to add to this flavor")
-  @foreach(Treat treat in @ViewBag.Treats)
-  {
-    @Html.CheckBox($"{treat.Name}", treat.TreatId)
-  }
+  @Html.Label("Select Treat")
+  @Html.DropDownList("TreatId", null, new { @class = "form-control"})
+  <br>
 
-  <imput type="submit" value="Add Treats to this flavor"/>
+  <input type="submit" value="Add Treat to this flavor"/>
 }
 

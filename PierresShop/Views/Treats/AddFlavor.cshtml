@@ -5,26 +5,13 @@
 @using PierresShop.Models
 @model PierresShop.Models.Treat
 
-<h2>Add Flavors to @Model.Name</h2>
+<h2>Add Flavor to @Model.Name</h2>
 
-@if(@ViewBag.Flavors.Count == 0)
+@using (Html.BeginForm())
 {
-  <h4>There are no current flavors.</h4>
-  <h4>@Html.ActionLink("Create a New Flavor", "Create", "Flavors")</h4>
-}
-else
-{
-
-  @using (Html.BeginForm())
-  {
-    <h3>Check all Flavors you would like to add to this flavor</h3>
-    @Html.HiddenFor(model => model.TreatId)
-    @foreach(Flavor flavor in @ViewBag.Flavors)
-    {
-      @Html.Label($"{flavor.Name}")
-      @Html.CheckBox($"{flavor.Name}", flavor.FlavorId)
-    }
-
-    <input type="submit" value="Add Flavors to this Treat"/>
-  }
+  <h3>Select Flavor</h3>
+  @Html.HiddenFor(model => model.TreatId)
+  @Html.DropDownList("FlavorId", null, new { @class = "form-control"})
+  <br>
+  <input type="submit" value="Add Flavor to this Treat"/>
 }
