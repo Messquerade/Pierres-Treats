@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierresShop.Models.Treat
+
+<h2>Edit @Model.Name</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @required = "required" }})
+
+  @Html.LabelFor(model => model.Ingredients)
+  @Html.EditorFor(model => model.Ingredients, new { htmlAttributes = new { @class = "form-control", @required = "required" }})
+
+  @Html.Label("Gluten Free")
+  @Html.CheckBoxFor(model => model.GlutenFree)
+
+  @Html.Label("Vegan")
+  @Html.CheckBoxFor(model => model.Vegan)
+
+  <input type="submit" value="Save"/>
+
+}

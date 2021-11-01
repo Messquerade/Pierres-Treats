@@ -4,5 +4,26 @@
 
 @model PierresShop.Models.Flavor
 
+<h2>Model.Name</h2>
 
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This flavor has no treats.</p>
+}
+else
+{
+  <h3>Treats:</h3>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <h4>@Html.ActionLink($"{join.Treat.Name}", "Treats", "Details", new { id = join.Treat.TreatId})</h4>
+    @using (Html.BeginForm("DeleteTreat", "Treats"))
+    {
+      @Html.Hidden("joinId", @join.FlavorTreatId)
+      <input type="submit" value="Delete"/>
+    }
+  }
+}
 
+<h4>@Html.ActionLink("Edit this Flavor", "Edit", new { id = Model.FlavorId })</h4>
+<h4>@Html.ActionLink("Delete this Flavor", "Delete", new { id = Model.FlavorId})</h4>
+<h4>@Html.ActionLink("Add Treats to Flavor", "AddTreat", new {id = Model.FlavorId})</h4>

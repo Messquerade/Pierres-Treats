@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierresShop.Models
+@model PierresShop.Models.Treat
+
+<h2>Add Flavors to @Model.Name</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+  @Html.Label("Check all Flavors you would like to add to this flavor")
+  @foreach(Flavor flavor in @ViewBag.Flavors)
+  {
+    @Html.CheckBox($"{flavor.Name}", flavor.FlavorId)
+  }
+
+  <imput type="submit" value="Add Flavors to this Treat"/>
+}
