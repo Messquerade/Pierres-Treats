@@ -7,14 +7,24 @@
 
 <h2>Add Flavors to @Model.Name</h2>
 
-@using (Html.BeginForm())
+@if(@ViewBag.Flavors.Count == 0)
 {
-  @Html.HiddenFor(model => model.TreatId)
-  @Html.Label("Check all Flavors you would like to add to this flavor")
-  @foreach(Flavor flavor in @ViewBag.Flavors)
-  {
-    @Html.CheckBox($"{flavor.Name}", flavor.FlavorId)
-  }
+  <h4>There are no current flavors.</h4>
+  <h4>@Html.ActionLink("Create a New Flavor", "Create", "Flavors")</h4>
+}
+else
+{
 
-  <imput type="submit" value="Add Flavors to this Treat"/>
+  @using (Html.BeginForm())
+  {
+    <h3>Check all Flavors you would like to add to this flavor</h3>
+    @Html.HiddenFor(model => model.TreatId)
+    @foreach(Flavor flavor in @ViewBag.Flavors)
+    {
+      @Html.Label($"{flavor.Name}")
+      @Html.CheckBox($"{flavor.Name}", flavor.FlavorId)
+    }
+
+    <input type="submit" value="Add Flavors to this Treat"/>
+  }
 }

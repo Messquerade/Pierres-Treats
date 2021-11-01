@@ -17,10 +17,10 @@
   @Html.EditorFor(model => model.Ingredients, new { htmlAttributes = new { @class = "form-control", @required = "required" }})
 
   @Html.Label("Gluten Free")
-  @Html.CheckBoxFor(model => model.GlutenFree)
+  @Html.CheckBoxFor(model => model.GlutenFree, new { htmlAttributes = new { @class = "form-control" }})
 
   @Html.Label("Vegan")
-  @Html.CheckBoxFor(model => model.Vegan)
+  @Html.CheckBoxFor(model => model.Vegan, new { htmlAttributes = new { @class = "form-control" }})
 
   <input type="submit" value="Save"/>
 

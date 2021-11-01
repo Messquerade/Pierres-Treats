@@ -117,7 +117,7 @@ namespace PierresShop.Controllers
       {
         return RedirectToAction("Details", new {id = id});
       }
-      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
+      ViewBag.Flavors = _db.Flavors.ToList();
       return View(thisTreat);
     }
 
